@@ -19,7 +19,6 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
@@ -30,4 +29,11 @@ repositories {
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+release {
+	dependsOn build // 'distZip' could e.g be used in combination with the 'application' plugin
+	push = false // 'true' would e.g. be useful when triggering the release task on a CI server
+	versionSuffix = '-SNAPSHOT' // '.DEV' or '' (empty) could be useful alternatives
+	tagPrefix = 'v' // 'r' or '' (empty) could be useful alternatives
 }

@@ -16,7 +16,6 @@
 *.iws
 *.iml
 *.ipr
-version.txt
 /out/
 
 ### NetBeans ###
